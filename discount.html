@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>Discount</head>
+<body>
+
+<h2>musician navya muttukuri computes discount</h2>
+
+<form>
+    <label for="amount">Enter the base amount </label>
+    <input type ="number" id="amount" name="amount" min=15 max=80 step=2 value=30> <br>
+
+    <label for="discount">Enter the discount percentage </label>
+    <input type ="text" id="discount" name="discount" autofocus value =10> <br>
+
+    <input type="button" onclick="discount1()" value="Apply discount">
+</form>
+
+
+<p id="result">This text will be replaced here </p>
+
+<script>
+    function discount1() {
+        baseamount = document.getElementById("amount").value
+        discountamount = document.getElementById("discount").value
+        var result = ""
+        for (i = 1; i <= 5; i++) {
+            result = result + ((i * baseamount) - (i * baseamount * discountamount) / 100) + " "
+        }
+        document.getElementById("result").innerHTML = "discounted amounts for base " + baseamount + " are " + result
+    }
+</script>
+<form>
+    <input type="radio" id="nm9_yellow" name="color" value="times"   
+      checked >
+    <label for="nm9_yellow">*</label></br>
+  
+    <input type="radio" id="nm9_pink" name="color" 
+       value="blue">
+    <label for="nm9_pink">/</label></br>
+  
+    <input type="radio" id="nm9_blue" name="color"   
+       value="exponent">
+    <label for="nm9_blue">*</label></br>
+
+    <input type="button" onclick="chooseOp()" value="Get values from radio group">
+  </form>
+
+  <p id="resultRadio">radio button will be displayed</p>
+  <script>
+  function chooseOp(){
+            baseamount = document.getElementById("amount").value
+            discountamount = document.getElementById("discount").value
+            times = document.getElementById("nm9_yellow").checked
+            divide = document.getElementById("nm9_pink").checked
+            exponent = document.getElementById("nm9_blue").checked
+            out = document.getElementById("resultRadio")
+            if(times==true)
+                result = baseamount*discountamount
+            if(divide==true)
+                result = baseamount/discountamount
+            if(exponent==true)
+                result = baseamount**discountamount
+            document.getElementById("resultRadio").innerHTML="The Result : "+result;
+        }
+  </script>
+
+</body>
+</html> 

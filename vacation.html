@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+ <title>vacation in webapps</title>
+</head>
+<body>
+
+<h2>Navya muttukuri Selects a Vacation</h2>
+
+<form>
+    <input type="checkbox" id="na" name="travel1"   
+          value="True">
+        <label for="Air">Travel by Air</label></br>
+      
+    <input type="checkbox" id="mu" name="travel2" 
+           value="True">
+        <label for="domestic">Domestic</label></br>
+      
+    <input type="checkbox" id="re" name="travel3"   
+           value="False">
+        <label for="resort">Resort</label></br>
+
+    <input type="button"class="btn btn-secondary"  type="button" onclick="selectVacation()" value="Select a Vacation">
+</form>
+<form>
+    <label for="property">Enter a city</label>
+    <input type ="text" id="property" name="property" value="city"> <br>
+
+    <label for="check">Enter price</label>
+    <input type ="text" id="value" name="check"><br>
+
+    <input type="button" class="btn btn-secondary" type="button" onclick="updateVacation()" value="Update the Vacation">
+</form>
+
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+
+var my_vacation={air:true,domestic:true,resort:true}
+function selectVacation(){
+    my_vacation={}
+    na = document.getElementById("na").value
+    mu = document.getElementById("mu").value
+    re = document.getElementById("re").value
+    nr = document.getElementById("result")
+    if(document.getElementById("na").checked){
+        my_vacation.air=true
+      }
+    else{
+        my_vacation.air=false
+    }
+    if(document.getElementById("mu").checked){
+        my_vacation.domestic=true        
+      }
+    else{
+        my_vacation.domestic=false
+    }
+    if(document.getElementById("re").checked){
+        my_vacation.resort=true
+      }
+    else{my_vacation.resort=false}
+    nr.innerHTML=JSON.stringify(my_vacation)    
+}
+function updateVacation(){
+        var a=document.getElementById("property").value
+        var r=document.getElementById("value").value
+        my_vacation[a]=r
+        nr.innerHTML=JSON.stringify(my_vacation)
+    }
+</script>
+
+
+</body>
+</html>
